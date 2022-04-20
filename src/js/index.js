@@ -1,14 +1,19 @@
 //import react into the bundle
 import React from "react";
 import ReactDOM from "react-dom";
+//import your own components
 import { Contador } from "./component/contador.jsx";
-//import Y, { ExFunc1, ExFunc2, etc... } from 'module';
 // include your styles into the webpack bundle
 import "../styles/index.css";
+import Home from "./component/home.jsx";
 
-//import your own components
-//import Contador from "./component/contador.jsx";
-//import Home from "./component/home.jsx";
-//ReactDOM.render(<Home />, document.querySelector("#app"));
 //render your react application
-ReactDOM.render(<Contador />, document.querySelector("#app"));
+let contador = 0;
+setInterval(() => {
+	ReactDOM.render(
+		<Contador segundos={contador} />,
+		document.querySelector("#app")
+	);
+	contador = contador + 1;
+}, 1000);
+//ReactDOM.render(<Home />, document.querySelector("#app"));
